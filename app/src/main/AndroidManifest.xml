@@ -32,6 +32,12 @@
             android:label="@string/app_name"
             android:theme="@style/Theme.Recipapp" />
 
+        <activity
+            android:name=".ui.screens.recipeDetails.RecipeDetailsActivity"
+            android:label="@string/app_name"
+            android:theme="@style/Theme.Recipapp">
+            <!-- Other activity attributes -->
+        </activity>
     </application>
 
 </manifest>

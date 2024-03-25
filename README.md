@@ -25,33 +25,47 @@ FoodRecipesApp est une application Android permettant aux utilisateurs de recher
 <pre>
 
 com.supinfo.recipapp
-├── data
-│   ├── local
-│   │   ├── dao                // Contient les interfaces DAO pour Room
-│   │   │   └── RecipeDao.kt  // Interface DAO pour la gestion des recettes en local
-│   │   └── database           // Contient la classe de base de données Room
-│   │       └── RecipeDatabase.kt  // Classe de base de données Room pour les recettes
-│   ├── model                 // Contient les modèles de données
-│   │   └── Recipe.kt         // Modèle de données pour une recette
-│   │   └── SeerchResponse.kt // Modèle de données pour la réponse de l'API
-│   │   └── RecipeDetailResponse.kt // Modèle de données pour une catégorie de recette
-│   └── remote
-│       ├── api               // Contient les classes pour les appels réseau
-│       │   └── RecipeApiService.kt  // Interface Retrofit pour les appels à l'API Food2Fork
-│       └── repository        // Contient la classe Repository pour la gestion des données
-│           └── RecipeRepository.kt  // Classe Repository pour la gestion des recettes
-├── di                        // Contient les modules Dagger pour l'injection de dépendances
-│   └── AppModule.kt          // Module Dagger pour la configuration de l'application
-├── ui
-│   ├── detail
-│   │   ├── DetailActivity.kt // Activité pour afficher les détails d'une recette
-│   │   └── DetailFragment.kt // Fragment pour afficher les détails d'une recette
-│   ├── list
-│   │   ├── ListActivity.kt   // Activité pour afficher la liste des recettes
-│   │   └── ListFragment.kt   // Fragment pour afficher la liste des recettes
-│   └── theme
-│       └── Theme.kt          // Fichier pour définir le thème de l'application
-└── util
-└── NetworkUtil.kt        // Utilitaire pour la gestion de la connectivité réseau
+¦
++-- data
+¦   +-- model
+¦   ¦   +-- Recipe.kt                    // Modèle de données pour une recette
+¦   ¦   +-- SearchResult.kt              // Modèle de données pour un résultat de recherche
+¦   +-- network
+¦   ¦   +-- ApiService.kt                // Interface définissant les appels réseau à l'API
+¦   ¦   +-- RetrofitInstance.kt          // Singleton pour créer une instance Retrofit
+¦   +-- repository
+¦   ¦   +-- RecipeRepository.kt          // Logique métier pour l'accès aux données (API, cache, base de données)
+¦   +-- local
+¦       +-- database
+¦       ¦   +-- RecipeDatabase.kt        // Classe abstraite pour la base de données Room
+¦       ¦   +-- dao
+¦       ¦       +-- RecipeDao.kt         // Interface DAO pour les opérations sur la table Recipe
+¦       +-- cache
+¦           +-- RecipeCache.kt           // Implémentation du cache pour stocker les données localement
+¦
++-- ui
+¦   +-- adapters
+¦   ¦   +-- RecipeListAdapter.kt        // Adaptateur pour afficher une liste de recettes dans un RecyclerView
+¦   +-- screens
+¦   ¦   +-- loading
+¦   ¦   ¦   +-- LoadingActivity.kt      // Activité pour afficher un écran de chargement
+¦   ¦   +-- recipeList
+¦   ¦   ¦   +-- RecipeListActivity.kt   // Activité principale pour afficher la liste des recettes
+¦   ¦   ¦   +-- RecipeListFragment.kt   // Fragment pour afficher la liste des recettes dans RecipeListActivity
+¦   ¦   +-- recipeDetails
+¦   ¦       +-- RecipeDetailsActivity.kt  // Activité pour afficher les détails d'une recette
+¦   ¦       +-- RecipeDetailsFragment.kt  // Fragment pour afficher les détails d'une recette dans RecipeDetailsActivity
+¦   +-- viewmodels
+¦   ¦   +-- RecipeListViewModel.kt      // ViewModel pour gérer les données de la liste des recettes
+¦   ¦   +-- RecipeDetailsViewModel.kt   // ViewModel pour gérer les données des détails d'une recette
+¦   +-- fragments
+¦       +-- SearchFragment.kt           // Fragment pour afficher l'interface de recherche
+¦
++-- util
+¦   +-- NetworkUtils.kt                 // Utilitaires pour gérer les opérations réseau
+¦   +-- Constants.kt                    // Constantes utilisées dans l'application
+¦
++-- MainActivity.kt                    // Activité principale de l'application
++-- SplashScreen.kt                    // Activité de l'écran de démarrage de l'application
 
 </pre>

@@ -1,5 +1,6 @@
 package com.supinfo.recipapp
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.viewModels
@@ -9,6 +10,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.supinfo.recipapp.data.remote.api.ApiService
 import com.supinfo.recipapp.data.remote.repository.RecipeRepository
 import com.supinfo.recipapp.ui.adapter.RecipeListAdapter
+import com.supinfo.recipapp.ui.screens.recipeDetails.RecipeDetailsActivity
 import com.supinfo.recipapp.ui.viewmodels.RecipeListViewModel
 import com.supinfo.recipapp.ui.viewmodels.RecipeListViewModelFactory
 import com.supinfo.recipapp.util.Constants.BASE_URL
@@ -37,7 +39,10 @@ class MainActivity : ComponentActivity() {
 
         recyclerView = findViewById(R.id.recipeRecyclerView)
         adapter = RecipeListAdapter(emptyList()) { recipe ->
-            // Handle item click
+            val intent = Intent(this, RecipeDetailsActivity::class.java)
+            intent.putExtra("recipe", recipe)
+            intent.putExtra("imageResId", recipe.imageUrl)
+            startActivity(intent)
         }
         recyclerView.adapter = adapter
         recyclerView.layoutManager = LinearLayoutManager(this)

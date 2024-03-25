@@ -6,7 +6,7 @@
 
     <!-- Recipe image -->
     <ImageView
-        android:id="@+id/imageRecipe"
+        android:id="@+id/image_recipe"
         android:layout_width="match_parent"
         android:layout_height="200dp"
         android:scaleType="centerCrop"
@@ -22,7 +22,7 @@
         android:layout_height="wrap_content"
         android:textSize="24sp"
         android:textStyle="bold"
-        app:layout_constraintTop_toBottomOf="@id/imageRecipe"
+        app:layout_constraintTop_toBottomOf="@+id/image_recipe"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         android:layout_marginTop="16dp"
@@ -30,8 +30,9 @@
         android:layout_marginEnd="16dp"
         android:text="Recipe Title" />
 
+    <!-- Last update time -->
     <TextView
-        android:id="@+id/textRecipeDescription"
+        android:id="@+id/textLastUpdateTime"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:layout_constraintTop_toBottomOf="@id/textRecipeTitle"
@@ -40,7 +41,20 @@
         android:layout_marginTop="8dp"
         android:layout_marginStart="16dp"
         android:layout_marginEnd="16dp"
-        android:text="Recipe Description" />
+        android:text="Last Updated: 2024" />
+
+    <!-- Ingredients -->
+    <TextView
+        android:id="@+id/textIngredients"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/textLastUpdateTime"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="8dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:text="Ingredients" />
 
 
     <!-- Recipe details -->

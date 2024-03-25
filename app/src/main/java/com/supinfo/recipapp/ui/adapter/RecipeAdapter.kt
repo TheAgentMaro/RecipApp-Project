@@ -39,6 +39,7 @@ class RecipeListAdapter(
             Glide.with(binding.root.context)
                 .load(recipe.imageUrl)
                 .placeholder(R.drawable.image_logo)
+                .centerCrop()
                 .into(binding.imageRecipe)
         }
     }
