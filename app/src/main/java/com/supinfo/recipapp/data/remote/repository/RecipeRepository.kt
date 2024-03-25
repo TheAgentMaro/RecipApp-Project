@@ -8,7 +8,7 @@ import com.supinfo.recipapp.data.remote.api.ApiService
 
 class RecipeRepository(private val apiService: ApiService) {
 
-    suspend fun searchRecipes(page: Int, query: String): SearchResult {
+    suspend fun searchRecipes(page: String, query: String): SearchResult {
         return apiService.searchRecipes(page, query)
     }
 

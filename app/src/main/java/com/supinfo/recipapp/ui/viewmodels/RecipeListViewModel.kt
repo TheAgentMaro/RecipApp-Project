@@ -23,15 +23,15 @@ class RecipeListViewModel(private val repository: RecipeRepository) : ViewModel(
         get() = _isLoading
 
     init {
-        searchRecipes("pizza") //
+        searchRecipes("1", "pizza") // Initial query when ViewModel is created
     }
 
-    fun searchRecipes(query: String) {
-        _isLoading.value = true
+    fun searchRecipes(page: String, query: String) {
+        _isLoading.value = true // Set loading state to true
         viewModelScope.launch {
             try {
                 val result = withContext(Dispatchers.IO) {
-                    repository.searchRecipes(1, query)
+                    repository.searchRecipes(page, query) // Perform search in the background
                 }
                 _recipes.value = result.results
             } catch (e: Exception) {
@@ -46,6 +46,7 @@ class RecipeListViewModel(private val repository: RecipeRepository) : ViewModel(
 class RecipeListViewModelFactory(private val repository: RecipeRepository) : ViewModelProvider.Factory {
     override fun <T : ViewModel> create(modelClass: Class<T>): T {
         if (modelClass.isAssignableFrom(RecipeListViewModel::class.java)) {
+            @Suppress("UNCHECKED_CAST")
             return RecipeListViewModel(repository) as T
         }
         throw IllegalArgumentException("Unknown ViewModel class")

@@ -41,7 +41,7 @@ class RecipeListActivity : AppCompatActivity() {
 
         // Fetch recipes
         CoroutineScope(Dispatchers.Main).launch {
-            viewModel.searchRecipes("pizza") // Initial query example
+            viewModel.searchRecipes("1","pizza") // Initial query example
         }
     }
 }

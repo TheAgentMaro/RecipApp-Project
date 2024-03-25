@@ -4,10 +4,6 @@ package com.supinfo.recipapp.data.remote.api
 
 import com.supinfo.reciapp.data.model.Recipe
 import com.supinfo.recipapp.data.model.SearchResult
-import com.supinfo.recipapp.util.Constants.BASE_URL
-import okhttp3.OkHttpClient
-import retrofit2.Response
-import retrofit2.Retrofit
 import retrofit2.http.GET
 import retrofit2.http.Header
 import retrofit2.http.Query
@@ -17,7 +13,7 @@ interface ApiService {
 
     @GET("recipe/search/")
     suspend fun searchRecipes(
-        @Query("page") page: Int,
+        @Query("page") page: String,
         @Query("query") query: String,
         @Header("Authorization") token: String = "Token 9c8b06d329136da358c2d00e76946b0111ce2c48"
     ): SearchResult

@@ -4,6 +4,7 @@ import android.content.Intent
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.viewModels
+import androidx.appcompat.widget.SearchView
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -47,11 +48,34 @@ class MainActivity : ComponentActivity() {
         recyclerView.adapter = adapter
         recyclerView.layoutManager = LinearLayoutManager(this)
 
+        // Setup search functionality
+        val searchView = findViewById<SearchView>(R.id.searchView)
+        searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
+            override fun onQueryTextSubmit(query: String?): Boolean {
+                // Perform search when user submits query
+                if (!query.isNullOrBlank()) {
+                    viewModel.searchRecipes("1", query!!)
+                }
+                return true
+            }
+
+
+            override fun onQueryTextChange(newText: String?): Boolean {
+                if (!newText.isNullOrBlank()) {
+                    viewModel.searchRecipes("1", newText)
+                } else {
+                    // If the search query is empty, you may want to show the initial data or clear the search results
+                    viewModel.searchRecipes("1", "pizza")
+                }
+                return true
+            }
+        })
+
         viewModel.recipes.observe(this, Observer { recipes ->
             adapter.updateData(recipes)
         })
 
         // Fetch recipe data when activity is created
-        viewModel.searchRecipes("pizza") // Example initial query
+        viewModel.searchRecipes("1","pizza")
     }
 }
