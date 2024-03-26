@@ -13,13 +13,26 @@ FoodRecipesApp est une application Android permettant aux utilisateurs de recher
 
 ## Technologies utilisées :
 
-- Kotlin
-- Android Jetpack (ViewModel, LiveData, Room)
-- Retrofit pour les appels réseau
-- RecyclerView pour l'affichage de la liste des recettes
-- Picasso/Glide pour le chargement et l'affichage des images
-- Git pour la gestion de version
-- GitHub Actions pour l'intégration continue (en option)
+- Kotlin : Le langage de programmation principal utilisé pour le développement de l'application Android.
+- Retrofit : Un client HTTP typé pour effectuer des requêtes réseau afin de récupérer des données de recette à partir d'une API distante.
+- Glide : Une bibliothèque de chargement d'images pour charger et afficher les images de recette de manière efficace.
+- ViewModel et LiveData : Composants d'architecture Android utilisés pour gérer les données liées à l'interface utilisateur de manière consciente du cycle de vie.
+- RecyclerView : Une vue flexible pour présenter une liste déroulante d'éléments de recette.
+- SearchView : Un widget Android utilisé pour fournir une fonctionnalité de recherche dans l'application.
+
+## Installation
+
+Pour exécuter le projet RecipApp sur votre machine locale, suivez ces étapes :
+
+- Clonez le dépôt :
+
+```bash
+git clone [https://github.com/votre-nom-utilisateur/recipapp.git](https://github.com/TheAgentMaro/RecipApp-Project.git)
+```
+
+- Ouvrez le projet dans Android Studio.
+
+- Compilez et exécutez le projet sur un émulateur Android ou sur un appareil physique.
 
 ## Architecture :
 <pre>
@@ -69,3 +82,11 @@ com.supinfo.recipapp
 +-- SplashScreen.kt                    // Activité de l'écran de démarrage de l'application
 
 </pre>
+
+
+## Utilisation
+
+- Lors du lancement de l'application, les utilisateurs se voient présenter une liste de recettes en fonction de la requête de recherche initiale (par exemple, "pizza").
+- Les utilisateurs peuvent parcourir les recettes en sélectionnant différentes catégories à partir des boutons de catégorie (Dessert, Viande, Poulet, Végétarien).
+- Pour rechercher des recettes spécifiques, les utilisateurs peuvent saisir des mots-clés ou des ingrédients dans la barre de recherche et appuyer sur Entrée.
+- En cliquant sur un élément de recette dans la liste, une vue détaillée de la recette s'ouvre, affichant son titre, ses ingrédients et ses instructions de cuisson.
