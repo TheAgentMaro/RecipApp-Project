@@ -27,7 +27,7 @@ Pour exécuter le projet RecipApp sur votre machine locale, suivez ces étapes :
 - Clonez le dépôt :
 
 ```bash
-git clone [https://github.com/votre-nom-utilisateur/recipapp.git](https://github.com/TheAgentMaro/RecipApp-Project.git)
+git clone https://github.com/votre-nom-utilisateur/recipapp.git
 ```
 
 - Ouvrez le projet dans Android Studio.
